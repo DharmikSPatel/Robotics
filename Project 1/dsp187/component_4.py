@@ -61,7 +61,7 @@ def visualize_path(path: List[np.ndarray]):
         draw_2arm_and_frame(ax, pose)
     anim =  animation.FuncAnimation(fig=fig, func=draw, frames=path, interval=1000/len(path))
     # Set to false if you do not want to export the gif
-    export = True
+    export = False
     if export:
         anim.save("component_4ii.gif")
     # Animation Code END
@@ -84,8 +84,8 @@ def test():
         (np.array([[-pi/4, pi/2]]).T, 3)
     ]
 
-    # visualize_path(interpolate_rigid_body(start_pose, goal_pose))
-    visualize_path(forward_propagate_rigid_body(start_pose, Plan))
+    visualize_path(interpolate_rigid_body(start_pose, goal_pose))
+    # visualize_path(forward_propagate_rigid_body(start_pose, Plan))
     pass
 
 if __name__ == "__main__":
